@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/woltapi",
+            "lambdaFunction": "woltapifunction",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/woltapi"
+        }
+    ],
+    "resourceName": "woltapi",
+    "apiName": "woltapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "woltapifunction"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplify8f632ada76de4-staging-154240-authRole",
+        "unAuthRoleName": "amplify-amplify8f632ada76de4-staging-154240-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "woltapifunction",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
