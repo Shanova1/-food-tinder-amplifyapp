@@ -1,15 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Deck from './Components/Deck'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello from V2</h1>
-      </header>
-    </div>
+<>
+<h1>Food<span className="highlight">tind</span><span className="highlight2">er</span></h1>
+<h2>Find the perfect match</h2>
+<h2>Swipe Left for EW, Swipe right for YUM</h2>
+<Deck />
+</>
+
   );
 }
 
