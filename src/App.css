@@ -2,16 +2,11 @@ body,
 html,
 #root {
   height: 100%;
+  border-bottom: 10px;
 }
 
 html {
   font-size: 18px;
-}
-
-.top-box {
-  position: sticky;
-  top: 0;
-  overflow: visible;
 }
 
 h1 {

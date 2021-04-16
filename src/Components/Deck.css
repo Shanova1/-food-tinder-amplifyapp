@@ -27,7 +27,9 @@
   #root > div {
     position: absolute;
     width: 100vw;
+    max-width: 100vw;
     height: 100vh;
+    max-height: 100%;
     will-change: transform;
     display: flex;
     align-items: center;
@@ -49,6 +51,11 @@
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
   }
 
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .img {
     display: block;
     margin-left: auto;
@@ -61,7 +68,7 @@
 
   .card-title {
     font-family: "Rubik";
-    font-size: 6vh;
+    font-size: 5vh;
     flex-wrap: wrap;
     display: block;
     margin-left: auto;

@@ -1,30 +1,45 @@
-import LocationSearchBar, { geometryLocation } from './LocationSearchBar';
+// import LocationSearchBar, { geometryLocation } from './LocationSearchBar';
+import React, { useState } from "react";
+import Deck from "./Deck";
+import "./data.css";
 
-// function to get restaurants data
-const getRawData = async () => {
-    const geo = await geometryLocation;
-    console.log(geo)
+function Data(props) {
+  const [restaurantes, setRestaurantes] = useState([]);
+
+  // function to get restaurants data
+  const getRawData = async () => {
+    console.log(props);
+    const geo = props.geometryLocation;
+    console.log(geo);
     const woltCatagoryJsonId = 10;
-    
+
     try {
       const response = await fetch(
-        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?lat=${geo.lat}&lon=${geo.lon}`
+        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?lat=${geo.lat}&lon=${geo.lng}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
         const restaurants = jsonResponse.sections[woltCatagoryJsonId].items;
         console.log(restaurants);
-        console.log(restaurants[1].image.url)
+        console.log(restaurants[1].image.url);
         return restaurants;
       }
     } catch (error) {
       console.log(error);
     }
-};
-  
+  };
+
   // restaurants data model - construct a class to save the relevant data from each restaurant
   class restaurant {
-    constructor(title, tags, rating, image_url, link,  delivers, short_description) {
+    constructor(
+      title,
+      tags,
+      rating,
+      image_url,
+      link,
+      delivers,
+      short_description
+    ) {
       this.title = title;
       this.tags = tags;
       this.rating = rating;
@@ -33,10 +48,10 @@ const getRawData = async () => {
       this.delivers = delivers;
       this.short_description = short_description;
     }
-  };
-    
+  }
+
   // loop through the raw data and save it to an array of restaurant
-  export const organizeRawData = async () => {
+  const organizeRawData = async () => {
     const rawData = await getRawData();
     let restaurantArr = [];
     for (let i = 0; i < rawData.length; i++) {
@@ -51,13 +66,25 @@ const getRawData = async () => {
           rawData[i].venue.short_description
         )
       );
-    // slice restaurants that are not open for delivery
-    for (let i = 0; i < restaurantArr.length; i++) {
-    if (restaurantArr[i].delivers === false) {
-        restaurantArr.slice(restaurantArr[i]);
-     }}
+      // slice restaurants that are not open for delivery
+      for (let i = 0; i < restaurantArr.length; i++) {
+        if (restaurantArr[i].delivers === false) {
+          restaurantArr.slice(restaurantArr[i]);
+        }
+      }
     }
-    console.log(restaurantArr);
-    // only show first 10 restaurantas
-    return restaurantArr.slice(10, restaurantArr.length);
+    console.log("restaurantArr:", restaurantArr);
+    setRestaurantes(restaurantArr);
+    console.log("restaurantes:", restaurantes);
+    return restaurantes;
   };
+
+  return (
+    <>
+      <button onClick={organizeRawData}>get restaurantes</button>
+        {restaurantes.length ? <Deck restaurantes={restaurantes} /> : <p></p>}
+    </>
+  );
+}
+
+export default Data;

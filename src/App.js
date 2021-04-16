@@ -1,19 +1,58 @@
-import React from 'react';
-import './App.css';
-import Deck from './Components/Deck'
-import { LocationSearchBar } from './Components/LocationSearchBar'
+import React, { useState } from "react";
+import "./App.css";
+import LocationSearchBar from "./Components/LocationSearchBar";
+import Data from "./Components/data";
 
 function App() {
- 
-  return (
-<>
-{/* <div>
-<h1>Food<span className="highlight">tind</span><span className="highlight2">er</span></h1>
-</div> */}
-<Deck />
-<LocationSearchBar />
-</>
+  const [address, setAddress] = useState("");
+  const [suggestions, setSugestions] = useState("");
+  const [geometryLocation, setGeometryLocation] = useState({});
 
+  async function fetchSugestions() {
+    try {
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
+      );
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        const suggestionsRawData = jsonResponse.predictions;
+        setSugestions(suggestionsRawData);
+        return suggestions;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const selectAddress = async (suggestion) => {
+    const chosenLocation = suggestion.place_id;
+    try {
+      console.log("chosenLocation:", chosenLocation);
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/place/details/json?placeid=${chosenLocation}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
+      );
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        console.log(jsonResponse);
+        setGeometryLocation(jsonResponse.result.geometry.location);
+        console.log(geometryLocation);
+        return geometryLocation;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <>
+          <LocationSearchBar
+            setAddress={setAddress}
+            fetchSugestions={fetchSugestions}
+            suggestions={suggestions}
+            selectAddress={selectAddress}
+          />
+          <Data geometryLocation={geometryLocation} />
+    </>
   );
 }
 
