@@ -5,8 +5,8 @@
   html,
   body {
     overscroll-behavior-y: contain;
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 5px;
     height: 100%;
     width: 100%;
     user-select: none;
@@ -22,7 +22,6 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
-    cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, auto;
   }
   
   #root > div {
@@ -34,18 +33,68 @@
     align-items: center;
     justify-content: center;
     touch-action: none;
-  }
+   }
   
   #root > div > div {
     background-color: white;
     background-size: auto 85%;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 45vh;
-    max-width: 300px;
-    height: 85vh;
-    max-height: 570px;
+    width: 460vh;
+    max-width: 460px;
+    height: 400vh;
+    max-height: 400px;
     will-change: transform;
     border-radius: 10px;
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  }
+
+  .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    height: 259px;
+    width: 460px;
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-family: "Rubik";
+    font-size: 6vh;
+    flex-wrap: wrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+  }
+
+  .card-short_description {
+    font-family: "Rubik";
+    font-weight: 400;
+    font-size: 3.5vh;
+    flex-wrap: wrap;
+  }
+
+  .card-tags {
+    font-family: "Rubik";
+    font-weight: 80;
+    font-size: 2.3vh;
+    display:inline;
+    color: rgb(58, 58, 58);
+  }
+
+  .card-rating {
+    font-family: "Rubik";
+    font-weight: 80;
+    font-size: 2.3vh;
+    display: inline;
+    color: rgb(58, 58, 58);
+  }
+
+  .card-bottom {
+    padding: 9px;
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
   }

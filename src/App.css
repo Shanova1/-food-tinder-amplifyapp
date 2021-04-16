@@ -8,8 +8,13 @@ html {
   font-size: 18px;
 }
 
+.top-box {
+  position: sticky;
+  top: 0;
+  overflow: visible;
+}
+
 h1 {
-  padding: .77rem 0;
   background-color: #ffffff;
   text-align: center;
   font-family: 'Poppins', sans-serif;
