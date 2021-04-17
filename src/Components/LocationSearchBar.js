@@ -4,7 +4,8 @@ import "./LocationSearchBar.css";
 function LocationSearchBar(props) {
 
     const { 
-        setAddress, 
+        setAddress,
+        address, 
         fetchSugestions, 
         suggestions, 
         selectAddress, 
@@ -28,7 +29,7 @@ function LocationSearchBar(props) {
     <>
       <span>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} onInput={handleChange}/>
+        <input type="text" onChange={handleChange} onInput={handleChange} value={address} />
         <ul>
         {suggestions.length ? (
             suggestions.map((suggestion) => (

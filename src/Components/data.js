@@ -4,7 +4,7 @@ import Deck from "./Deck";
 import "./data.css";
 
 function Data(props) {
-  const [restaurantes, setRestaurantes] = useState([]);
+  const [woltRestaurants, setWoltRestaurants] = useState([]);
 
   // function to get restaurants data
   const getRawData = async () => {
@@ -74,15 +74,15 @@ function Data(props) {
       }
     }
     console.log("restaurantArr:", restaurantArr);
-    setRestaurantes(restaurantArr);
-    console.log("restaurantes:", restaurantes);
-    return restaurantes;
+    setWoltRestaurants(restaurantArr);
+    console.log("woltRestaurants:", woltRestaurants);
+    return woltRestaurants;
   };
 
   return (
     <>
-      <button onClick={organizeRawData}>get restaurantes</button>
-        {restaurantes.length ? <Deck restaurantes={restaurantes} /> : <p></p>}
+      <button onClick={organizeRawData}>Get Restaurants</button>
+        {woltRestaurants.length ? <Deck woltRestaurants={woltRestaurants} /> : <p></p>}
     </>
   );
 }

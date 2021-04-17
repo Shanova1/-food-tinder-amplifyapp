@@ -47,6 +47,7 @@ function App() {
     <>
           <LocationSearchBar
             setAddress={setAddress}
+            address={address}
             fetchSugestions={fetchSugestions}
             suggestions={suggestions}
             selectAddress={selectAddress}
