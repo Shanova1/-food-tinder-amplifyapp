@@ -38,7 +38,8 @@ function Data(props) {
       image_url,
       link,
       delivers,
-      short_description
+      short_description,
+      id
     ) {
       this.title = title;
       this.tags = tags;
@@ -47,6 +48,7 @@ function Data(props) {
       this.link = link;
       this.delivers = delivers;
       this.short_description = short_description;
+      this.id = id;
     }
   }
 
@@ -63,7 +65,8 @@ function Data(props) {
           rawData[i].image.url,
           rawData[i].link.target,
           rawData[i].venue.delivers,
-          rawData[i].venue.short_description
+          rawData[i].venue.short_description,
+          rawData[i].venue.id
         )
       );
       // slice restaurants that are not open for delivery

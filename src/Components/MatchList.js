@@ -1,23 +1,16 @@
-import React from 'react'
-import Deck from './Deck'
+import React from "react";
 
-export function Matchlist(props) {
+function MatchList(props) {
 
-const [matches, seMatches] = useState([])
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await Deck();
-      console.log(data)
-      seMatches(data);
-    }
+  const print = () => {
+    console.log(props);
+  }
 
-    fetchData();
-  }, [data.length > 0])
-
-
-    return (
-        <>
-            
-        </>
-    )
+  return (
+    <>
+  <button onClick={print}>MatchList</button>
+    </>
+  );
 }
+
+export default MatchList;

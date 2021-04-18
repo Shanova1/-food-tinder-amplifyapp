@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import LocationSearchBar from "./Components/LocationSearchBar";
 import Data from "./Components/data";
+import MatchList from "./Components/MatchList"; 
 
 function App() {
   const [address, setAddress] = useState("");
@@ -53,6 +54,7 @@ function App() {
             selectAddress={selectAddress}
           />
           <Data geometryLocation={geometryLocation} />
+          {/* <MatchList /> */}
     </>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSprings, animated, to as interpolate } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 import './Deck.css'
+import MatchList from "./MatchList"; 
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i) => ({ x: 0, y: i * -4, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
@@ -21,6 +22,8 @@ function Deck(props) {
   };
   let roundOneLikes = [];
   let roundTwoLikes = [];
+  const [matchArray, setMatchArray] = useState([]);
+
   const [propsCard, set] = useSprings(cards.length, (i) => ({ ...to(i), from: from(i) })) // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
   const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
@@ -59,12 +62,18 @@ function Deck(props) {
         roundTwoLikes.push(... likedRestaurants);
         console.log("roundOneLikes", roundOneLikes);
         console.log("roundTwoLikes", roundTwoLikes);
+        
+        // match roundOneLikes % roundTwoLikes - return an array of only matching restaurants
+        let matches = roundOneLikes.filter(o1 => roundTwoLikes.some(o2 => o1.id === o2.id));
+        console.log(matches);
+        setMatchArray(matches);
       }
     }
   })
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   // the cards themselves
   return propsCard.map(({ x, y, rot, scale }, i) => (
+    <>
     <animated.div key={i} style={{ x, y }}>
       {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
       <animated.div {...bind(i)} style={{ transform: interpolate([rot, scale], trans)}}>
@@ -77,6 +86,7 @@ function Deck(props) {
           </div>
       </animated.div>
     </animated.div>
+    </>
   ))
 }
 
