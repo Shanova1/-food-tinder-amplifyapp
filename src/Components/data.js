@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import Deck from "./Deck";
 import "./data.css";
+import MatchList from "./MatchList";
 
 function Data(props) {
+
+// GET RESTAURANTES DATA
   const [woltRestaurants, setWoltRestaurants] = useState([]);
 
   // function to get restaurants data
@@ -21,7 +24,6 @@ function Data(props) {
         const jsonResponse = await response.json();
         const restaurants = jsonResponse.sections[woltCatagoryJsonId].items;
         console.log(restaurants);
-        console.log(restaurants[1].image.url);
         return restaurants;
       }
     } catch (error) {
@@ -82,12 +84,23 @@ function Data(props) {
     return woltRestaurants;
   };
 
+// AFTER DATA HAS BEEN SHOWN AND MATCHED, GET MATCH ARRAY FROM DECK.JS
+  const [matchDisplayState, setMatchDisplayState] = useState([]);
+
+  const getMatchDataFromChild = (val) => {
+    setMatchDisplayState(val)
+    console.log(val);
+  }
+
   return (
     <>
       <button onClick={organizeRawData}>Get Restaurants</button>
-        {woltRestaurants.length ? <Deck woltRestaurants={woltRestaurants} /> : <p></p>}
-    </>
+        {woltRestaurants.length ? <Deck woltRestaurants={woltRestaurants} sendDataToParent={getMatchDataFromChild} /> : <p></p>}
+        {matchDisplayState.length ? <MatchList matches={matchDisplayState} /> : <p></p>}
+     </>
   );
 }
 
 export default Data;
+
+// There aren't any restaurants on Wolt near you yet

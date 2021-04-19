@@ -2,13 +2,15 @@ import React from "react";
 
 function MatchList(props) {
 
-  const print = () => {
-    console.log(props);
-  }
+const matches = props.matches;
+
+function printIt() {
+  console.log(matches)
+}
 
   return (
     <>
-  <button onClick={print}>MatchList</button>
+    <button onClick={printIt}>Matches</button>
     </>
   );
 }

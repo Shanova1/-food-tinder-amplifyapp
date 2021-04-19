@@ -11,7 +11,7 @@ function LocationSearchBar(props) {
         selectAddress, 
         } = props;
 
-  const handleChange = (e) => {
+  const handleInput = (e) => {
     setAddress(e.target.value);
     fetchSugestions();
   };
@@ -29,7 +29,7 @@ function LocationSearchBar(props) {
     <>
       <span>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} onInput={handleChange} value={address} />
+        <input type="text" onInput={handleInput} value={address} />
         <ul>
         {suggestions.length ? (
             suggestions.map((suggestion) => (

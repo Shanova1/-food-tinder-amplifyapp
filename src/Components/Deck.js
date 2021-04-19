@@ -40,7 +40,6 @@ function Deck(props) {
       
       // if swiped right (xDir > 0) push liked restauranted into array
       if (isGone && xDir > 0) like(cards[i]);
-      console.log('liked:', likedRestaurants);
 
       const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0) // How much the card tilts, flicking it harder makes it rotate faster
       const scale = down ? 1.1 : 1 // Active cards lift up a bit
@@ -65,8 +64,14 @@ function Deck(props) {
         
         // match roundOneLikes % roundTwoLikes - return an array of only matching restaurants
         let matches = roundOneLikes.filter(o1 => roundTwoLikes.some(o2 => o1.id === o2.id));
-        console.log(matches);
+        console.log("matches", matches);
+        
+        // function to send state up to parent cmnponents
+        const setMatchArray = (matches) => {
+          props.sendDataToParent(matches);
+        };
         setMatchArray(matches);
+        
       }
     }
   })
