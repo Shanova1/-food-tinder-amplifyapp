@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import "./App.css";
 import LocationSearchBar from "./Components/LocationSearchBar";
 import Data from "./Components/data";
-import MatchList from "./Components/MatchList"; 
 
 function App() {
-  const [address, setAddress] = useState("");
+  const [userInput, setUserInput] = useState("");
   const [suggestions, setSugestions] = useState("");
   const [geometryLocation, setGeometryLocation] = useState({});
 
   async function fetchSugestions() {
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
+        `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
@@ -44,17 +43,19 @@ function App() {
     }
   };
 
+
   return (
     <>
-          <LocationSearchBar
-            setAddress={setAddress}
-            address={address}
-            fetchSugestions={fetchSugestions}
-            suggestions={suggestions}
-            selectAddress={selectAddress}
-          />
-          <Data geometryLocation={geometryLocation} />
-          {/* <MatchList /> */}
+        <LocationSearchBar
+          setUserInput={setUserInput}
+          userInput={userInput}
+          fetchSugestions={fetchSugestions}
+          suggestions={suggestions}
+          selectAddress={selectAddress}
+        />
+      <Data
+        geometryLocation={geometryLocation}
+      />
     </>
   );
 }

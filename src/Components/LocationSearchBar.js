@@ -3,16 +3,19 @@ import "./LocationSearchBar.css";
 
 function LocationSearchBar(props) {
 
+  const [showOptions, setShowOptions] = useState(false);
+
     const { 
-        setAddress,
-        address, 
+        setUserInput,
+        userInput, 
         fetchSugestions, 
         suggestions, 
         selectAddress, 
         } = props;
 
   const handleInput = (e) => {
-    setAddress(e.target.value);
+    setShowOptions(true);
+    setUserInput(e.target.value);
     fetchSugestions();
   };
 
@@ -20,20 +23,29 @@ function LocationSearchBar(props) {
     e.preventDefault();
   };
 
-  const handleClick = (e) => {
-      e.target.element.className="selcted"
-  }
-  
+  const onClick = (value) => {
+
+      setUserInput(value);
+      setShowOptions(false);
+     
+
+  };
+
 
   return (
     <>
-      <span>
+      <React.Fragment>
+      <div className="search">
       <form onSubmit={handleSubmit}>
-        <input type="text" onInput={handleInput} value={address} />
-        <ul>
-        {suggestions.length ? (
+        <input className="search-box" type="text" placeholder="Enter Address" onInput={handleInput} value={userInput} />
+        <ul className="options">
+        {suggestions.length && showOptions && userInput ? (
             suggestions.map((suggestion) => (
-                <li key={suggestion.place_id} onClick={handleClick} onClick={() => {selectAddress(suggestion)}}>{suggestion.description}</li>
+                <li 
+                key={suggestion.place_id} 
+                onClick={() => {onClick(suggestion.description); selectAddress(suggestion)}}>
+                  {suggestion.description}
+                  </li>
             ))
 
     ) : (
@@ -41,9 +53,12 @@ function LocationSearchBar(props) {
     )}
     </ul>
       </form>
-      </span>
+      </div>
+      </React.Fragment>
     </>
   );
 }
 
 export default LocationSearchBar;
+
+// onClick={() => {selectAddress(suggestion)}}
