@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import LocationSearchBar from "./Components/LocationSearchBar";
 import Data from "./Components/data";
@@ -8,7 +8,7 @@ function App() {
   const [suggestions, setSugestions] = useState("");
   const [geometryLocation, setGeometryLocation] = useState({});
 
-  async function fetchSugestions() {
+  const fetchSugestions = async () => {
     try {
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
@@ -27,15 +27,15 @@ function App() {
   const selectAddress = async (suggestion) => {
     const chosenLocation = suggestion.place_id;
     try {
-      console.log("chosenLocation:", chosenLocation);
+      // console.log("chosenLocation:", chosenLocation);
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/place/details/json?placeid=${chosenLocation}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
+        // console.log(jsonResponse);
         setGeometryLocation(jsonResponse.result.geometry.location);
-        console.log(geometryLocation);
+        // console.log("geometryLocation:", geometryLocation);
         return geometryLocation;
       }
     } catch (error) {
@@ -43,19 +43,35 @@ function App() {
     }
   };
 
+  // GET CARDS STATE FROM DATA.JS
+  const [cards, setCards] = useState([]);
+  const getCardsStateFromChild = (val) => {
+    setCards(val);
+   };
 
   return (
     <>
-        <LocationSearchBar
-          setUserInput={setUserInput}
-          userInput={userInput}
-          fetchSugestions={fetchSugestions}
-          suggestions={suggestions}
-          selectAddress={selectAddress}
+      <div>
+        <h1>title</h1>
+      </div>
+      {!cards.length && (
+        <div>
+          <h2>hiii</h2>
+          <LocationSearchBar
+            setUserInput={setUserInput}
+            userInput={userInput}
+            fetchSugestions={fetchSugestions}
+            suggestions={suggestions}
+            selectAddress={selectAddress}
+          />
+        </div>
+      )}
+      <div>
+        <Data
+          geometryLocation={geometryLocation}
+          sendCardsStateToParent={getCardsStateFromChild}
         />
-      <Data
-        geometryLocation={geometryLocation}
-      />
+      </div>
     </>
   );
 }

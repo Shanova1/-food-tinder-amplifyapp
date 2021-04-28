@@ -1,21 +1,22 @@
-.cards-container {
-    background-color: tomato;
+/* .button-div {
+  width: 20rem;
+  text-align: center;
+  position: stic;
+} */
+.search-btn {
+  width: auto;
+  border: initial;
+  position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
-
-.SearchButton {
-    cursor: pointer;
-    width: 8.11rem;
-    padding: .77rem 0;
-    border-radius: 54px;
-    background-color: #010c3f;
-    text-align: center;
-    font-size: .833rem;
-    transition: background-color .25s;
-    border: 0px;
-    color: #fff;
-    font-weight: 500;
-  }
-  
-  .SearchButton:hover {
-    background-color: rgba(108, 65, 233, .7);
-  }
+.search-btn:hover {
+  outline: none;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.search-btn:focus {
+  outline: none;
+  opacity: 0.6;
+}

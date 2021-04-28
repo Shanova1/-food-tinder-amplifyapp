@@ -1,6 +1,5 @@
 // import LocationSearchBar, { geometryLocation } from './LocationSearchBar';
 import React, { useState } from "react";
-import ReactDOM from 'react-dom';
 import Deck from "./Deck";
 import "./data.css";
 import MatchList from "./MatchList";
@@ -11,10 +10,8 @@ function Data(props) {
 
   // function to get restaurants data
   const getRawData = async () => {
-    console.log(props);
     const geo = props.geometryLocation;
-    console.log(geo);
-    const woltCatagoryJsonId = 10;
+    const woltCatagoryJsonId = 8;
 
     try {
       const response = await fetch(
@@ -22,6 +19,7 @@ function Data(props) {
       );
       if (response.ok) {
         const jsonResponse = await response.json();
+        console.log("jsonResponse:", jsonResponse);
         const restaurants = jsonResponse.sections[woltCatagoryJsonId].items;
         console.log("restaurants:", restaurants);
         return restaurants;
@@ -57,10 +55,13 @@ function Data(props) {
   // loop through the raw data and save it to an array of restaurant
   const organizeRawData = async () => {
     const rawData = await getRawData();
-    console.log("rawData:", rawData);
     if (rawData !== undefined) {
       let restaurantArr = [];
       for (let i = 0; i < rawData.length; i++) {
+        // fix bug when new restaurants on Wolt don't have ratings score yet
+        if (rawData[i].venue.rating == null) {
+          rawData[i].venue.rating = "N/A";
+        }
         restaurantArr.push(
           new restaurant(
             rawData[i].title,
@@ -72,6 +73,7 @@ function Data(props) {
             rawData[i].venue.short_description,
             rawData[i].venue.id
           )
+          
         );
         // slice restaurants that are not open for delivery
         for (let i = 0; i < restaurantArr.length; i++) {
@@ -80,43 +82,57 @@ function Data(props) {
           }
         }
       }
-      console.log("restaurantArr:", restaurantArr);
       setWoltRestaurants(restaurantArr);
       return woltRestaurants;
     } else {
       console.log("rawData is undefined, this is rawData", rawData);
-      // const massage = <p>There aren't any restaurants on Wolt near you yet</p>
-      // ReactDOM.render(massage, document.getElementById('error-massage'));
     }
   };
 
+  // send cards state to parent
+    const cardsStateToParent = (val) => {
+      props.sendCardsStateToParent(val);
+    };
+    cardsStateToParent(woltRestaurants);
+ 
+
+  // GET ROUND STATE FROM DECK.JS
+  const [roundState, setRoundState] = useState(1);
+
+  const getRoundStateFromChild = (val) => {
+    setRoundState(val);
+  };
   // AFTER DATA HAS BEEN SHOWN AND MATCHED, GET MATCH ARRAY FROM DECK.JS
   const [matchDisplayState, setMatchDisplayState] = useState([]);
 
   const getMatchDataFromChild = (val) => {
     setMatchDisplayState(val);
-    console.log(val);
   };
 
   return (
     <>
       {woltRestaurants.length ? (
-        <p></p>
+        null
       ) : (
-        <button onClick={organizeRawData}>Get Restaurants</button>
+        <button className="search-btn" onClick={organizeRawData}>
+          Get Restaurants
+        </button>
       )}
-      {woltRestaurants.length ? (
+      {woltRestaurants.length && !matchDisplayState.length ? (<h2>Player {roundState}</h2>) : null}
+      {woltRestaurants.length && !matchDisplayState.length ? (
         <Deck
           woltRestaurants={woltRestaurants}
-          sendDataToParent={getMatchDataFromChild}
+          sendRoundStateToParent={getRoundStateFromChild}
+          roundState={roundState}
+          sendMatchDataToParent={getMatchDataFromChild}
         />
       ) : (
-        <p id="error-massage"></p>
+        null
       )}
       {matchDisplayState.length ? (
         <MatchList matches={matchDisplayState} />
       ) : (
-        <p></p>
+        null
       )}
     </>
   );

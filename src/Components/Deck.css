@@ -1,4 +1,4 @@
-* {
+/* /* * {
     box-sizing: border-box;
   }
   
@@ -14,17 +14,17 @@
       sans-serif;
     position: fixed;
     overflow: hidden;
-  }
+  } */
   
-  #root {
+  /* #root {
     background: rgba(255, 255, 255, 0.568);
     position: fixed;
     overflow: hidden;
     width: 100%;
     height: 100%;
-  }
+  } */
   
-  #root > div {
+  .root-div {
     position: absolute;
     width: 100vw;
     max-width: 100vw;
@@ -37,7 +37,7 @@
     touch-action: none;
    }
   
-  #root > div > div {
+   .root-div-div {
     background-color: white;
     background-size: auto 85%;
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@
     will-change: transform;
     border-radius: 10px;
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
-  }
+  } */
 
   .cards-container {
     display: flex;
