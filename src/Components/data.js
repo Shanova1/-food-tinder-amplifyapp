@@ -15,7 +15,7 @@ function Data(props) {
 
     try {
       const response = await fetch(
-        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?lat=${geo.lat}&lon=${geo.lng}`
+        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=woltapi&lat=${geo.lat}&lon=${geo.lng}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();

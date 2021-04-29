@@ -11,7 +11,7 @@ function App() {
   const fetchSugestions = async () => {
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
+        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=placesapi&input=${userInput}}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
@@ -29,7 +29,7 @@ function App() {
     try {
       // console.log("chosenLocation:", chosenLocation);
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/place/details/json?placeid=${chosenLocation}&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo`
+        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=geolocationapi&placeid=${chosenLocation}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
