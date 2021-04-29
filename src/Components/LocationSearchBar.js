@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./LocationSearchBar.css";
 
 function LocationSearchBar(props) {
+  // toggle options box
   const [showOptions, setShowOptions] = useState(false);
 
+  // deconstruct props from App.js
   const {
     setUserInput,
     userInput,
@@ -12,8 +14,8 @@ function LocationSearchBar(props) {
     selectAddress,
   } = props;
 
+  // whenever a user types, the Google Maps auto suggestions api in App.js sends a request
   const handleInput = (e) => {
-    console.log("onInput!");
     setShowOptions(true);
     setUserInput(e.target.value);
     fetchSugestions();
@@ -23,6 +25,7 @@ function LocationSearchBar(props) {
     e.preventDefault();
   };
 
+  // when a user chooses an address from the suggestions, the Google Maps geo-location api in App.js sends a request
   const onClick = (value) => {
     setUserInput(value);
     setShowOptions(false);

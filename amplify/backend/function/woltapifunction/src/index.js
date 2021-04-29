@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 exports.handler = async (event) => {
   let params = event.queryStringParameters;
 
-  // places autolocation api request
+  // (1) places autolocation api request
   if (params.apitype == "placesapi") {
     let placesResponse = await fetch(
       "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" +
@@ -42,7 +42,7 @@ exports.handler = async (event) => {
     return response;
   }
 
-  // geolocation (lat&lon) api request
+  // (2) geolocation (lat&lon) api request
   else if (params.apitype == "geolocationapi") {
     let geolocationResponse = await fetch(
       "https://maps.googleapis.com/maps/api/place/details/json?placeid=" +
@@ -79,7 +79,7 @@ exports.handler = async (event) => {
     };
     return response;
   }
-  // Wolt restaurantes api request
+  // (3) Wolt restaurantes api request
   else if (params.apitype == "woltapi") {
     let WoltResponse = await fetch(
       "https://restaurant-api.wolt.com/v1/pages/front?lat=" +
@@ -116,7 +116,7 @@ exports.handler = async (event) => {
 
     const response = {
       statusCode: 200,
-      body: JSON.stringify(event),
+      body: JSON.stringify(WoltData),
       headers: {
         "Access-Control-Allow-Origin": "*",
       },

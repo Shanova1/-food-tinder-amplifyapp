@@ -8,10 +8,10 @@ function Data(props) {
   // GET RESTAURANTES DATA
   const [woltRestaurants, setWoltRestaurants] = useState([]);
 
-  // function to get restaurants data
+  // function to get restaurants data from wolt api using the geo-location from App.js
   const getRawData = async () => {
     const geo = props.geometryLocation;
-    const woltCatagoryJsonId = 8;
+        const woltCatagoryJsonId = 8; // random wolt Catagory
 
     try {
       const response = await fetch(

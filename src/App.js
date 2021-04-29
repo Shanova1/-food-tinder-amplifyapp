@@ -2,12 +2,22 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import LocationSearchBar from "./Components/LocationSearchBar";
 import Data from "./Components/data";
+import Landingpage from "./Components/LandingPage";
 
 function App() {
+
+  // landing page
+  const [showLandingPage, setShowLandingPage] = useState(true);
+  const getButtonStateFromChild = (val) => {
+    setShowLandingPage(val);
+   };
+
+// REQUESTS
   const [userInput, setUserInput] = useState("");
   const [suggestions, setSugestions] = useState("");
   const [geometryLocation, setGeometryLocation] = useState({});
 
+  // request to Google Maps auto suggestions api
   const fetchSugestions = async () => {
     try {
       const response = await fetch(
@@ -24,18 +34,16 @@ function App() {
     }
   }
 
+  // request to Google Maps geo-location api, using the chosen location from the suggestions
   const selectAddress = async (suggestion) => {
     const chosenLocation = suggestion.place_id;
     try {
-      // console.log("chosenLocation:", chosenLocation);
       const response = await fetch(
         `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=geolocationapi&chosenLocation=${chosenLocation}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
-        // console.log(jsonResponse);
         setGeometryLocation(jsonResponse.result.geometry.location);
-        // console.log("geometryLocation:", geometryLocation);
         return geometryLocation;
       }
     } catch (error) {
@@ -51,12 +59,11 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>title</h1>
-      </div>
-      {!cards.length && (
+      {showLandingPage == true && <Landingpage 
+      sendButtonStateToParent={getButtonStateFromChild}
+      />}
+      {!cards.length && showLandingPage == false ? (
         <div>
-          <h2>hiii</h2>
           <LocationSearchBar
             setUserInput={setUserInput}
             userInput={userInput}
@@ -65,13 +72,13 @@ function App() {
             selectAddress={selectAddress}
           />
         </div>
-      )}
-      <div>
+      ) : null}
+       {showLandingPage == false && <div>
         <Data
           geometryLocation={geometryLocation}
           sendCardsStateToParent={getCardsStateFromChild}
         />
-      </div>
+      </div>}
     </>
   );
 }
