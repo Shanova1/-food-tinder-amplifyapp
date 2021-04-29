@@ -13,7 +13,7 @@ function LocationSearchBar(props) {
   } = props;
 
   const handleInput = (e) => {
-    alert("onInput!");
+    console.log("onInput!");
     setShowOptions(true);
     setUserInput(e.target.value);
     fetchSugestions();
