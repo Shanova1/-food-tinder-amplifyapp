@@ -15,7 +15,7 @@
       "function": {
         "woltapifunction": {
           "deploymentBucketName": "amplify-amplify8f632ada76de4-staging-154240-deployment",
-          "s3Key": "amplify-builds/woltapifunction-3431536f6c4270677259-build.zip"
+          "s3Key": "amplify-builds/woltapifunction-34394852796147526d43-build.zip"
         }
       }
     }

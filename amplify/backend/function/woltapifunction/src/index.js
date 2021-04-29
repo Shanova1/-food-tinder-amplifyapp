@@ -34,7 +34,7 @@ exports.handler = async (event) => {
     // console.log(JSON.stringify(placesData));
     const response = {
       statusCode: 200,
-      body: JSON.stringify(placesResponse),
+      body: JSON.stringify(placesData),
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
@@ -72,7 +72,7 @@ exports.handler = async (event) => {
     
     const response = {
       statusCode: 200,
-      body: JSON.stringify(geolocationResponse),
+      body: JSON.stringify(geolocationData),
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
