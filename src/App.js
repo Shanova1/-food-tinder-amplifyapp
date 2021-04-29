@@ -11,7 +11,7 @@ function App() {
   const fetchSugestions = async () => {
     try {
       const response = await fetch(
-        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=placesapi&input=${userInput}}`
+        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=placesapi&userInput=${userInput}}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
@@ -29,7 +29,7 @@ function App() {
     try {
       // console.log("chosenLocation:", chosenLocation);
       const response = await fetch(
-        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=geolocationapi&placeid=${chosenLocation}`
+        `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=geolocationapi&chosenLocation=${chosenLocation}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
