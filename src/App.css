@@ -1,0 +1,41 @@
+/* .app-container {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+} */
+
+.logo-container {
+    display: grid;
+    justify-items: center;
+}
+
+.logo {
+    width: 40vh;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 0.1px;
+    padding: 0px;
+  }
+
+.location-container {
+    display: grid;
+    justify-items: center;
+    background-size: cover;
+    background-color: rgb(92, 225, 230, 0.88);
+    height: 410px;
+    padding: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.data-container {
+    justify-items: center;
+    display: grid;
+}
+
+@media screen and (min-height: 800px) {
+    .location-container {
+        height: 530px;
+    }
+  }
+  

@@ -5,14 +5,13 @@ import Data from "./Components/data";
 import Landingpage from "./Components/LandingPage";
 
 function App() {
-
   // landing page
   const [showLandingPage, setShowLandingPage] = useState(true);
   const getButtonStateFromChild = (val) => {
     setShowLandingPage(val);
-   };
+  };
 
-// REQUESTS
+  // REQUESTS
   const [userInput, setUserInput] = useState("");
   const [suggestions, setSugestions] = useState("");
   const [geometryLocation, setGeometryLocation] = useState({});
@@ -32,7 +31,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   // request to Google Maps geo-location api, using the chosen location from the suggestions
   const selectAddress = async (suggestion) => {
@@ -55,30 +54,28 @@ function App() {
   const [cards, setCards] = useState([]);
   const getCardsStateFromChild = (val) => {
     setCards(val);
-   };
+  };
 
   return (
     <>
-      {showLandingPage == true && <Landingpage 
-      sendButtonStateToParent={getButtonStateFromChild}
-      />}
-      {!cards.length && showLandingPage == false ? (
-        <div>
-          <LocationSearchBar
-            setUserInput={setUserInput}
-            userInput={userInput}
-            fetchSugestions={fetchSugestions}
-            suggestions={suggestions}
-            selectAddress={selectAddress}
-          />
-        </div>
-      ) : null}
-       {showLandingPage == false && <div>
-        <Data
-          geometryLocation={geometryLocation}
-          sendCardsStateToParent={getCardsStateFromChild}
-        />
-      </div>}
+        {showLandingPage === true && (
+          <Landingpage sendButtonStateToParent={getButtonStateFromChild} />
+        )}
+        {!cards.length && showLandingPage === false ? (
+            <LocationSearchBar
+              setUserInput={setUserInput}
+              userInput={userInput}
+              fetchSugestions={fetchSugestions}
+              suggestions={suggestions}
+              selectAddress={selectAddress}
+            />
+        ) : null}
+        {showLandingPage === false && (
+            <Data
+              geometryLocation={geometryLocation}
+              sendCardsStateToParent={getCardsStateFromChild}
+            />
+        )}
     </>
   );
 }

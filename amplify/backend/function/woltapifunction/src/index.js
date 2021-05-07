@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     let placesResponse = await fetch(
       "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" +
         params.userInput +
-        "&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo",
+        "&location=32.0853,34.7818&radius=25500&key=AIzaSyCipUpKGSAQ-uZlrkg2R5GokfN--vG-uyo",
       {
         headers: {
           accept: "*/*",

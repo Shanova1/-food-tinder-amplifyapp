@@ -1,0 +1,61 @@
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    height: 259px;
+    width: 460px;
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-family: "Varela Round";
+    font-size: 5vh;
+    font-weight: bold;
+    flex-wrap: wrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .card-short_description {
+    font-family: "Varela Round";
+    font-weight: 400;
+    font-size: 3.5vh;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .card-tags {
+    font-family: "Varela Round";
+    font-weight: 80;
+    font-size: 2.4vh;
+    display:inline;
+    color: rgb(58, 58, 58);
+    text-align: center;
+  }
+
+  .card-rating {
+    font-family: "Varela Round";
+    font-weight: 80;
+    font-size: 2.4vh;
+    display: inline;
+    color: rgb(58, 58, 58);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .card-bottom {
+    padding: 9px;
+    position: absolute;
+    bottom: 0;    flex-wrap: wrap;
+  }

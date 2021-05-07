@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LocationSearchBar.css";
+import logo from "../pics/logo2.png";
 
 function LocationSearchBar(props) {
   // toggle options box
@@ -33,8 +34,11 @@ function LocationSearchBar(props) {
 
   return (
     <>
-        <div className="search">
-          <form onSubmit={handleSubmit}>
+      <div className="location-bar-container">
+        <div className="search-container">
+          <img className="logo" src={logo} />
+          <div className="form-container">
+          <form className="form" onSubmit={handleSubmit}>
             <input
               className="search-box"
               type="text"
@@ -42,25 +46,32 @@ function LocationSearchBar(props) {
               onInput={handleInput}
               value={userInput}
             />
-            <ul className="options">
-              {suggestions.length && showOptions && userInput ? (
-                suggestions.map((suggestion) => (
-                  <li
-                    key={suggestion.place_id}
-                    onClick={() => {
-                      onClick(suggestion.description);
-                      selectAddress(suggestion);
-                    }}
-                  >
-                    {suggestion.description}
-                  </li>
-                ))
-              ) : (
-                null
-              )}
-            </ul>
+            <div className="suggestions-container">
+              <ul className="options">
+                {suggestions.length && showOptions && userInput
+                  ? suggestions.map((suggestion) => (
+                      <li
+                        key={suggestion.place_id}
+                        onClick={() => {
+                          onClick(suggestion.description);
+                          selectAddress(suggestion);
+                        }}
+                      >
+                        {suggestion.description}
+                      </li>
+                    ))
+                  : null}
+              </ul>
+            </div>
           </form>
+          </div>
+          {/* <div className="search-btn-container">
+            <button className="search-btn">
+              Get Restaurants
+            </button>
+          </div> */}
         </div>
+      </div>
     </>
   );
 }

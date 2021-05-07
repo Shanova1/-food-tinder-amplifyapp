@@ -20,6 +20,9 @@ const trans = (r, s) =>
 
 function Deck(props) {
   const cards = props.woltRestaurants;
+
+  console.log(cards);
+
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [likedRestaurants, setLikedRestaurants] = useState([]);
   const like = (restaurant) => {

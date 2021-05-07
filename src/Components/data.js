@@ -5,6 +5,8 @@ import "./data.css";
 import MatchList from "./MatchList";
 
 function Data(props) {
+  
+  
   // GET RESTAURANTES DATA
   const [woltRestaurants, setWoltRestaurants] = useState([]);
 
@@ -114,9 +116,11 @@ function Data(props) {
       {woltRestaurants.length ? (
         null
       ) : (
+        <div className="search-btn-container">
         <button className="search-btn" onClick={organizeRawData}>
           Get Restaurants
         </button>
+        </div>
       )}
       {woltRestaurants.length && !matchDisplayState.length ? (<h2>Player {roundState}</h2>) : null}
       {woltRestaurants.length && !matchDisplayState.length ? (
