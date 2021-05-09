@@ -1,3 +1,6 @@
+@import url(//db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo);
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat&family=Raleway:wght@300&display=swap");
+
 /* .button-div {
   width: 20rem;
   text-align: center;
@@ -53,6 +56,18 @@
   overflow: hidden;
   margin-bottom: 0.1px;
   padding: 0px;
+}
+
+.player-h3 {
+  text-shadow: 1px 1px 2px rgb(22, 26, 27);
+  font-family: "Lovelo", sans-serif;
+  color: whitesmoke;
+  font-size: 30px;
+  background: #6ac3ea;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 2px solid #0000008a;
+  border-radius: 20px;;
 }
 
 .deck-page-container {
