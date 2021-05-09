@@ -1,10 +1,10 @@
-.cards-container {
+/* .cards-container {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
 
-  .img {
+  .match-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -58,4 +58,4 @@
     padding: 9px;
     position: absolute;
     bottom: 0;    flex-wrap: wrap;
-  }
+  } */

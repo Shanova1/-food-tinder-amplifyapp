@@ -64,7 +64,7 @@ function MatchList(props) {
         <div className="cards-container">
         {matches.map((match) => (
           <div className="card">
-            <img alt={match.title} src={match.image_url} className="img" />
+            <img alt={match.title} src={match.image_url} className="match-img" />
             <div className="card-title">{match.title}</div>
             <div className="card-short_description">
               {match.short_description}

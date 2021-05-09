@@ -4,16 +4,16 @@ import Deck from "./Deck";
 import "./data.css";
 import MatchList from "./MatchList";
 
+import logo from "../pics/logo2.png";
+
 function Data(props) {
-  
-  
   // GET RESTAURANTES DATA
   const [woltRestaurants, setWoltRestaurants] = useState([]);
 
   // function to get restaurants data from wolt api using the geo-location from App.js
   const getRawData = async () => {
     const geo = props.geometryLocation;
-        const woltCatagoryJsonId = 8; // random wolt Catagory
+    const woltCatagoryJsonId = 8; // random wolt Catagory
 
     try {
       const response = await fetch(
@@ -75,7 +75,6 @@ function Data(props) {
             rawData[i].venue.short_description,
             rawData[i].venue.id
           )
-          
         );
         // slice restaurants that are not open for delivery
         for (let i = 0; i < restaurantArr.length; i++) {
@@ -92,11 +91,10 @@ function Data(props) {
   };
 
   // send cards state to parent
-    const cardsStateToParent = (val) => {
-      props.sendCardsStateToParent(val);
-    };
-    cardsStateToParent(woltRestaurants);
- 
+  const cardsStateToParent = (val) => {
+    props.sendCardsStateToParent(val);
+  };
+  cardsStateToParent(woltRestaurants);
 
   // GET ROUND STATE FROM DECK.JS
   const [roundState, setRoundState] = useState(1);
@@ -113,31 +111,34 @@ function Data(props) {
 
   return (
     <>
-      {woltRestaurants.length ? (
-        null
-      ) : (
+      {woltRestaurants.length ? null : (
         <div className="search-btn-container">
-        <button className="search-btn" onClick={organizeRawData}>
-          Get Restaurants
-        </button>
+          <button className="search-btn" onClick={organizeRawData}>
+            Get Restaurants
+          </button>
         </div>
       )}
-      {woltRestaurants.length && !matchDisplayState.length ? (<h2>Player {roundState}</h2>) : null}
       {woltRestaurants.length && !matchDisplayState.length ? (
-        <Deck
-          woltRestaurants={woltRestaurants}
-          sendRoundStateToParent={getRoundStateFromChild}
-          roundState={roundState}
-          sendMatchDataToParent={getMatchDataFromChild}
-        />
-      ) : (
-        null
-      )}
+        <div className="logo-and-deck-container">
+          <img className="logo" src={logo} />
+          <div className="deck-page-container">
+            <p>Swipe right for YES →</p>
+            <p>← Swipe left for NO</p>
+            <h3 className="player-h3">Player {roundState}</h3>
+            <div className="deck-container">
+              <Deck
+                woltRestaurants={woltRestaurants}
+                sendRoundStateToParent={getRoundStateFromChild}
+                roundState={roundState}
+                sendMatchDataToParent={getMatchDataFromChild}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
       {matchDisplayState.length ? (
         <MatchList matches={matchDisplayState} />
-      ) : (
-        null
-      )}
+      ) : null}
     </>
   );
 }

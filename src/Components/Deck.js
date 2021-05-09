@@ -122,19 +122,19 @@ function Deck(props) {
   return propsCard.map(({ x, y, rot, scale }, i) => (
     <>
       <animated.div
-        className="root-div"
+        className="deck-div"
         key={i}
         style={{ x, y }}
         id="card-container"
       >
         {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
         <animated.div
-          className="root-div-div"
+          className="card-div"
           key={i}
           {...bind(i)}
           style={{ transform: interpolate([rot, scale], trans) }}
         >
-          <img alt={cards[i].title} src={cards[i].image_url} className="img" />
+          <img alt={cards[i].title} src={cards[i].image_url} width="331.2px" className="card-img" />
           <div className="card-title">{cards[i].title}</div>
           <div className="card-short_description">
             {cards[i].short_description}

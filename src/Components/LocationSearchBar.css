@@ -1,10 +1,9 @@
 
 .location-bar-container {
-  background-color: rgb(92, 225, 230, 0.88);
+  background-color: rgb(94, 225, 230);
   height: 85vh;
   width: 100vw;
   background-position: center;
-  
   display: flex;
 }
 

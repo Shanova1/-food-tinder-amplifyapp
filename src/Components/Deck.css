@@ -1,34 +1,9 @@
-/* /* * {
-    box-sizing: border-box;
-  }
-  
-  html,
-  
-    overscroll-behavior-y: contain;
-    margin: 5px;
-    padding: 5px;
-    height: 100%;
-    width: 100%;
-    user-select: none;
-    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
-      sans-serif;
-    position: fixed;
-    overflow: hidden;
-  } */
-  
-  /* #root {
-    background: rgba(255, 255, 255, 0.568);
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  } */
 
-  .root-div {
+  .deck-div {
     position: absolute;
     width: 100vw;
     max-width: 100vw;
-    height: 100vh;
+    height: 60vh;
     max-height: 100%;
     will-change: transform;
     display: flex;
@@ -37,7 +12,82 @@
     touch-action: none;
    }
   
-   .root-div-div {
+   .card-div {
+    background-color: white;
+    background-size: auto 85%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 331.2vh;
+    max-width: 331.2px;
+    height: 375vh;
+    max-height: 375px;
+    will-change: transform;
+    border-radius: 8px;
+    box-shadow: 0 10px 80px -8px rgba(50, 50, 73, 0.4), 0 8px 8px -8px rgba(50, 50, 73, 0.3);
+  } */
+
+
+  .card-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 331.2px;
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-family: "Varela Round";
+    font-size: 4vh;
+    font-weight: bold;
+    flex-wrap: wrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .card-short_description {
+    font-family: "Varela Round";
+    font-weight: 320;
+    font-size: 2.8vh;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .card-tags {
+    font-family: "Varela Round";
+    font-weight: 64;
+    font-size: 2.6vh;
+    display:inline;
+    color: rgb(58, 58, 58);
+    text-align: center;
+  }
+
+  .card-rating {
+    font-family: "Varela Round";
+    font-weight: 80;
+    font-size: 2.6vh;
+    display: inline;
+    color: rgb(58, 58, 58);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .card-bottom {
+    padding: 7.2px;
+    position: absolute;
+    bottom: 0;    flex-wrap: wrap;
+  }
+
+
+/* for desktop screens */
+
+  /* @media screen and (min-width: 415px) {
+  
+   .card-div {
     background-color: white;
     background-size: auto 85%;
     background-repeat: no-repeat;
@@ -49,11 +99,7 @@
     will-change: transform;
     border-radius: 10px;
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
-  } */
-
-  #cards-container {
-    background-color: darkred;
-  }
+  } 
 
   .img {
     display: block;
@@ -111,3 +157,4 @@
     bottom: 0;    flex-wrap: wrap;
 
   }
+} */
