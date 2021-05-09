@@ -17,13 +17,13 @@
     background-size: auto 85%;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 331.2vh;
-    max-width: 331.2px;
-    height: 375vh;
-    max-height: 375px;
+    width: 3231.84vh;
+    max-width: 231.84px;
+    height: 260vh;
+    max-height: 260px;
     will-change: transform;
     border-radius: 8px;
-    box-shadow: 0 10px 80px -8px rgba(50, 50, 73, 0.4), 0 8px 8px -8px rgba(50, 50, 73, 0.3);
+    box-shadow: 0 7px 56px -5px rgba(50, 50, 73, 0.4), 0 5px 5px -5px rgba(50, 50, 73, 0.3);
   } */
 
 
@@ -32,26 +32,26 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    width: 331.2px;
+    width: 3231.84px;
     border-radius: 10px;
   }
 
   .card-title {
     font-family: "Varela Round";
-    font-size: 4vh;
+    font-size: 3.5vh;
     font-weight: bold;
     flex-wrap: wrap;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 11px;
-    margin-bottom: 12px;
+    margin-top: 10px;
+    margin-bottom: 11px;
     text-align: center;
   }
 
   .card-short_description {
     font-family: "Varela Round";
-    font-weight: 320;
+    font-weight: 310;
     font-size: 2.8vh;
     flex-wrap: wrap;
     text-align: center;
@@ -60,7 +60,7 @@
   .card-tags {
     font-family: "Varela Round";
     font-weight: 64;
-    font-size: 2.6vh;
+    font-size: 2.3vh;
     display:inline;
     color: rgb(58, 58, 58);
     text-align: center;
@@ -68,16 +68,16 @@
 
   .card-rating {
     font-family: "Varela Round";
-    font-weight: 80;
-    font-size: 2.6vh;
+    font-weight: 64;
+    font-size: 2.3vh;
     display: inline;
     color: rgb(58, 58, 58);
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     text-align: center;
   }
 
   .card-bottom {
-    padding: 7.2px;
+    padding: 7px;
     position: absolute;
     bottom: 0;    flex-wrap: wrap;
   }

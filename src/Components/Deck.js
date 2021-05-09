@@ -134,7 +134,7 @@ function Deck(props) {
           {...bind(i)}
           style={{ transform: interpolate([rot, scale], trans) }}
         >
-          <img alt={cards[i].title} src={cards[i].image_url} width="331.2px" className="card-img" />
+          <img alt={cards[i].title} src={cards[i].image_url} width="231.84px" className="card-img" />
           <div className="card-title">{cards[i].title}</div>
           <div className="card-short_description">
             {cards[i].short_description}

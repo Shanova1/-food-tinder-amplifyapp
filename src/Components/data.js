@@ -120,7 +120,7 @@ function Data(props) {
       )}
       {woltRestaurants.length && !matchDisplayState.length ? (
         <div className="logo-and-deck-container">
-          <img className="logo" src={logo} />
+          <img className="deck-logo" src={logo} />
           <div className="deck-page-container">
             <p>Swipe right for YES →</p>
             <p>← Swipe left for NO</p>
