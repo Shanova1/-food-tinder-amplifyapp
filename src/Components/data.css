@@ -58,9 +58,20 @@
   padding: 0px;
 }
 
-.swipe-p {
+.swipe-p-top {
   text-shadow: 1px 1px 2px rgb(22, 26, 27);
+  color: white;
   font-size: 22px;
+  margin-top: 0.1px;
+  margin-bottom: 0.1px;
+}
+
+.swipe-p-bottom {
+  text-shadow: 1px 1px 2px rgb(22, 26, 27);
+  color: white;
+  font-size: 22px;
+  margin-top: 0.1px;
+  margin-bottom: 0.1px;
 }
 
 .player-h3 {

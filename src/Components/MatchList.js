@@ -63,6 +63,7 @@ function MatchList(props) {
       <div className="match-page">
       <img className="match-logo" src={logo} />
       <h1 className="match-h1">It's a Match!</h1>
+      <h3 className="match-h3">Click to order on Wolt</h3>
       {showMatches == true &&
         <div className="match-cards-container">
         {matches.map((match) => (

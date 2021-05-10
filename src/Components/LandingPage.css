@@ -49,21 +49,33 @@ h2 {
 
 .subtitle-bottom {
   margin-top: 2.5px;
-  margin-bottom: 7px;
+  margin-bottom: 11px;
 }
 
-p {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  font-family: "Fjalla One", sans-serif;
+
+.p-top {
+  margin-bottom: 1px;
   font-family: "Montserrat", sans-serif;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
-  font-size: 17px;
+  font-size: 19px;
   margin-left: 30px;
   margin-right: 30px;
   color: white;
+  text-shadow: 0.1px 0.1px 0.1px rgb(7, 106, 139);
+}
+
+.p-bottom {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 19px;
+  margin-top: 2px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 1px;
+  color: white;
+  text-shadow: 0.1px 0.1px 0.1px rgb(7, 106, 139);
 }
 
 .start-button {

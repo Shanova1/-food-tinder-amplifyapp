@@ -21,8 +21,8 @@ function Landingpage(props) {
             <h2 className="subtitle-top">Stop searching,</h2>
             <h2 className="subtitle-bottom">start eating!</h2>
           </div>
-          <p>Swipe right to like a restaurant,</p>
-           <p>If both players like the restaurant, it's a match!</p>
+          <p className="p-top">Swipe right to like a restaurant</p>
+           <p className="p-bottom">If both players like the restaurant, it's a match!</p>
           <button className="start-button" onClick={handleClick}>START</button>
         </div>
       </div>
