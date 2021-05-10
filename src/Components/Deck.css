@@ -38,7 +38,7 @@
 
   .card-title {
     font-family: "Varela Round";
-    font-size: 3vh;
+    font-size: 3.1vh;
     font-weight: bold;
     flex-wrap: wrap;
     display: block;
@@ -52,7 +52,7 @@
   .card-short_description {
     font-family: "Varela Round";
     font-weight: 310;
-    font-size: 2.3vh;
+    font-size: 2.2vh;
     flex-wrap: wrap;
     text-align: center;
   }
@@ -60,7 +60,7 @@
   .card-tags {
     font-family: "Varela Round";
     font-weight: 64;
-    font-size: 2.3vh;
+    font-size: 2vh;
     display:inline;
     color: rgb(58, 58, 58);
     text-align: center;
@@ -69,7 +69,7 @@
   .card-rating {
     font-family: "Varela Round";
     font-weight: 64;
-    font-size: 2.3vh;
+    font-size: 2vh;
     display: inline;
     color: rgb(58, 58, 58);
     margin-bottom: 5px;

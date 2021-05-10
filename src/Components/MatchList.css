@@ -1,61 +1,113 @@
-/* .cards-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+@import url(//db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo);
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat&family=Raleway:wght@300&display=swap");
 
-  .match-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    height: 259px;
-    width: 460px;
-    border-radius: 10px;
-  }
+.match-page {
+  background-color: rgb(94, 225, 230);
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  justify-content: center;
+}
 
-  .card-title {
-    font-family: "Varela Round";
-    font-size: 5vh;
-    font-weight: bold;
-    flex-wrap: wrap;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 12px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
+.match-logo {
+  width: 60vh;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 0.1px;
+  padding: 0px;
+}
 
-  .card-short_description {
-    font-family: "Varela Round";
-    font-weight: 400;
-    font-size: 3.5vh;
-    flex-wrap: wrap;
-    text-align: center;
-  }
+.match-h1 {
+  text-shadow: 1px 1px 2px rgb(22, 26, 27);
+  font-size: 22px;
+  text-align: center;
+  font-family: "Lovelo", sans-serif;
+  color: whitesmoke
+}
 
-  .card-tags {
-    font-family: "Varela Round";
-    font-weight: 80;
-    font-size: 2.4vh;
-    display:inline;
-    color: rgb(58, 58, 58);
-    text-align: center;
-  }
+.match-cards-container {
+  margin: 25px;
+  height: calc(100% - 50px);
+  width: calc(100% - 50px);
+  background-color: rgb(92, 225, 230, 0.88);
+  display: grid;
+  justify-items: center;
+  margin-bottom: 5px;
+}
 
-  .card-rating {
-    font-family: "Varela Round";
-    font-weight: 80;
-    font-size: 2.4vh;
-    display: inline;
-    color: rgb(58, 58, 58);
-    margin-bottom: 10px;
-    text-align: center;
-  }
+a {
+  color: #000000;
+  text-decoration: none;
+}
 
-  .card-bottom {
-    padding: 9px;
-    position: absolute;
-    bottom: 0;    flex-wrap: wrap;
-  } */
+.match-card {
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 3231.84vh;
+  max-width: 231.84px;
+  height: 260vh;
+  max-height: 260px;
+  will-change: transform;
+  border-radius: 8px;
+  box-shadow: 0 7px 56px -5px rgba(50, 50, 73, 0.4),
+    0 5px 5px -5px rgba(50, 50, 73, 0.3);
+}
+
+.match-card-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  width: 231.84px;
+  border-radius: 10px;
+}
+
+.match-card-title {
+  font-family: "Varela Round";
+  font-size: 3.1vh;
+  font-weight: bold;
+  flex-wrap: wrap;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+.match-card-short_description {
+  font-family: "Varela Round";
+  font-weight: 310;
+  font-size: 2.2vh;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.match-card-tags {
+  font-family: "Varela Round";
+  font-weight: 64;
+  font-size: 2vh;
+  display: inline;
+  color: rgb(58, 58, 58);
+  text-align: center;
+}
+
+.match-card-rating {
+  font-family: "Varela Round";
+  font-weight: 64;
+  font-size: 2vh;
+  display: inline;
+  color: rgb(58, 58, 58);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.match-card-bottom {
+  padding: 7.2px;
+  position: absolute;
+  bottom: 0;
+  flex-wrap: wrap;
+}

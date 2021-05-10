@@ -58,6 +58,11 @@
   padding: 0px;
 }
 
+.swipe-p {
+  text-shadow: 1px 1px 2px rgb(22, 26, 27);
+  font-size: 22px;
+}
+
 .player-h3 {
   text-shadow: 1px 1px 2px rgb(22, 26, 27);
   font-family: "Lovelo", sans-serif;

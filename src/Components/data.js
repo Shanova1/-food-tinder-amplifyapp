@@ -122,8 +122,8 @@ function Data(props) {
         <div className="logo-and-deck-container">
           <img className="deck-logo" src={logo} />
           <div className="deck-page-container">
-            <p>Swipe right for YES →</p>
-            <p>← Swipe left for NO</p>
+            <p className="swipe-p">Swipe right for YES ⟶</p>
+            <p className="swipe-p">⟵ Swipe left for NO</p>
             <h3 className="player-h3">Player {roundState}</h3>
             <div className="deck-container">
               <Deck
