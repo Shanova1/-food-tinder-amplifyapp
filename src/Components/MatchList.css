@@ -6,8 +6,11 @@
   width: 100vw;
   background-position: center;
   background-size: cover;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
 }
 
 .match-logo {
@@ -16,6 +19,7 @@
   overflow: hidden;
   margin-bottom: 0.1px;
   padding: 0px;
+  align-self: center;
 }
 
 .match-h1 {
@@ -120,4 +124,17 @@ a {
   position: absolute;
   bottom: 0;
   flex-wrap: wrap;
+}
+
+@media screen and (min-width: 415px) {
+  .match-cards-container {
+    margin: 25px;
+    height: calc(100% - 50px);
+    width: calc(100% - 50px);
+    background-color: rgb(92, 225, 230, 0.88);
+    display: flex;
+    align-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }

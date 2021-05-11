@@ -40,7 +40,7 @@ function Deck(props) {
     if (props.roundState === 2) {
       setRoundOneLikes(likedRestaurants);
       //restock cards
-      setTimeout(() => gone.clear() || set((i) => to(i)), 2000);
+      setTimeout(() => gone.clear() || set((i) => to(i)), 1500);
       setLikedRestaurants([{id: "1"}]);
     }
   }, [props.roundState]);
