@@ -16,7 +16,7 @@ function Landingpage(props) {
     <>
       <div className="landing-page">
         <div className="text-container">
-          <img className="logo" src={logo} />
+          <img className="landing-logo" src={logo} />
           <div className="subtitle-container">
             <h2 className="subtitle-top">Stop searching,</h2>
             <h2 className="subtitle-bottom">start eating!</h2>

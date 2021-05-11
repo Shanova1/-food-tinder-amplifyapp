@@ -9,13 +9,13 @@
     justify-items: center;
 }
 
-.logo {
+/* .logo {
     width: 40vh;
     display: flex;
     overflow: hidden;
     margin-bottom: 0.1px;
     padding: 0px;
-  }
+  } */
 
 .location-container {
     display: grid;
