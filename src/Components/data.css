@@ -41,7 +41,7 @@
 }
 
 .logo-and-deck-container {
-  height: 90vh;
+  height: 91vh;
   background-color: rgb(94, 225, 230);
   background-position: center;
   display: flex;
@@ -50,7 +50,7 @@
 }
 
 .deck-logo {
-  /* width: 40vh; */
+  width: 40vh;
   display: flex;
   align-self: center;
   overflow: hidden;
