@@ -99,6 +99,7 @@ h2 {
 @media screen and (min-width: 415px) {
   .landing-page {
     background-image: url("../pics/food-table2.png");
+    height: 100vh;
   }
 }
 
