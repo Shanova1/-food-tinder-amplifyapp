@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import LocationSearchBar from "./Components/LocationSearchBar";
 import Data from "./Components/data";
@@ -56,6 +56,12 @@ function App() {
     setCards(val);
   };
 
+    // GET OUT OF REACH STATE FROM DATA.JS
+    const [outOfReachMassage, setOutOfReachMassage] = useState(false);
+    const getOutOfReachStateFromChild = (val) => {
+      setOutOfReachMassage(val);
+    };
+
   return (
     <>
         {showLandingPage === true && (
@@ -68,12 +74,17 @@ function App() {
               fetchSugestions={fetchSugestions}
               suggestions={suggestions}
               selectAddress={selectAddress}
+              outOfReachMassage={outOfReachMassage}
             />
         ) : null}
+        {/* {outOfReachMassage == true && (
+          <p>There aren't any restaurants on Wolt near you yet</p>
+        )} */}
         {showLandingPage === false && (
             <Data
               geometryLocation={geometryLocation}
               sendCardsStateToParent={getCardsStateFromChild}
+              sendOutOfReachStateToParent={getOutOfReachStateFromChild}
             />
         )}
     </>

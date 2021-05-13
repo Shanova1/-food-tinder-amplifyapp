@@ -10,6 +10,12 @@ function Data(props) {
   // GET RESTAURANTES DATA
   const [woltRestaurants, setWoltRestaurants] = useState([]);
 
+  // for out of reach locations
+      // send cards state to parent
+      const outOfReachStateToParent = (val) => {
+        props.sendOutOfReachStateToParent(val);
+      };
+
   // function to get restaurants data from wolt api using the geo-location from App.js
   const getRawData = async () => {
     const geo = props.geometryLocation;
@@ -22,16 +28,21 @@ function Data(props) {
       if (response.ok) {
         const jsonResponse = await response.json();
         console.log("jsonResponse:", jsonResponse);
-        const restaurants = jsonResponse.sections[woltCatagoryJsonId].items;
-        console.log("restaurants:", restaurants);
-        return restaurants;
+        if (jsonResponse.city !== "out-of-reach") {
+          const restaurants = jsonResponse.sections[woltCatagoryJsonId].items;
+          console.log("restaurants:", restaurants);
+          return restaurants;
+        } else {
+          outOfReachStateToParent(true);
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  // restaurants data model - construct a class to save the relevant data from each restaurant
+
+      // restaurants data model - construct a class to save the relevant data from each restaurant
   class restaurant {
     constructor(
       title,
@@ -111,6 +122,9 @@ function Data(props) {
 
   return (
     <>
+      {/* {outOfReach == true && (
+        <p>There aren't any restaurants on Wolt near you yet</p>
+      )} */}
       {woltRestaurants.length ? null : (
         <div className="search-btn-container">
           <button className="search-btn" onClick={organizeRawData}>
@@ -120,7 +134,7 @@ function Data(props) {
       )}
       {woltRestaurants.length && !matchDisplayState.length ? (
         <div className="logo-and-deck-container">
-          <img className="deck-logo" src={logo} />
+          <img className="deck-logo" alt="log" src={logo} />
           <div className="deck-page-container">
             <p className="swipe-p-top">Swipe right for YES ⟶</p>
             <p className="swipe-p-bottom">⟵ Swipe left for NO</p>

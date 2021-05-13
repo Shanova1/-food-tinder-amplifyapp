@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./MatchList.css";
 
 import logo from "../pics/logo2.png";
@@ -6,18 +6,10 @@ import logo from "../pics/logo2.png";
 function MatchList(props) {
   const matches = props.matches;
 
-  // const [showMatches, setShowmatches] = useState(false);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setShowmatches(true)
-  //   }, 300);
-  // }, []);
-
   return (
     <>
       <div className="match-page">
-      <img className="match-logo" src={logo} />
+      <img className="match-logo" alt="log" src={logo} />
       <h1 className="match-h1">It's a Match!</h1>
       <h3 className="match-h3">Click to order on Wolt</h3>
 

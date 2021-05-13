@@ -146,6 +146,11 @@ ul.options li.option-active {
   opacity: 0.6;
 }
 
+.out-of-reach-p {
+    padding: 50px;
+    font-size: 30px;
+    text-align: center;
+}
 /* .SearchBar {
     display: flex;
     flex-direction: column;
