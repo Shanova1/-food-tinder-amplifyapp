@@ -68,7 +68,7 @@ function LocationSearchBar(props) {
               }
             </form>
             {outOfReachMassage == true && (
-              <p>There aren't any restaurants on Wolt near you yet</p>
+              <p className="out-of-reach-p">There aren't any restaurants on Wolt near you yet</p>
             )}
           </div>
         </div>
