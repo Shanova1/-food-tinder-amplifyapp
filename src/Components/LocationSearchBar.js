@@ -43,7 +43,7 @@ function LocationSearchBar(props) {
               <input
                 className="search-box"
                 type="text"
-                placeholder="Enter Address"
+                placeholder="Enter Address in English"
                 onInput={handleInput}
                 value={userInput}
               />
