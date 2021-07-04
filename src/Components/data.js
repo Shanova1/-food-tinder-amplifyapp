@@ -19,7 +19,7 @@ function Data(props) {
   // function to get restaurants data from wolt api using the geo-location from App.js
   const getRawData = async () => {
     const geo = props.geometryLocation;
-    const woltCatagoryJsonId = 8; // random wolt Catagory
+    const woltCatagoryJsonId = 10; // random wolt Catagory
 
     try {
       const response = await fetch(
