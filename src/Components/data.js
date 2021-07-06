@@ -33,7 +33,9 @@ function Data(props) {
           console.log("restaurants:", restaurants);
           return restaurants;
         } else {
+          // show out of reach message instead of suggestion box
           outOfReachStateToParent(true);
+          // re-set outOfReachState to false in order to show the suggestions box again for new address try (quick bug fix)
           setTimeout(() => {
             outOfReachStateToParent(false)
           }, 7000);
@@ -125,9 +127,6 @@ function Data(props) {
 
   return (
     <>
-      {/* {outOfReach == true && (
-        <p>There aren't any restaurants on Wolt near you yet</p>
-      )} */}
       {woltRestaurants.length ? null : (
         <div className="search-btn-container">
           <button className="search-btn" onClick={organizeRawData}>

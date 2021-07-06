@@ -11,6 +11,7 @@
   display: grid;
   justify-items: center;
   height: 15vh;
+  position: absolute;
 }
 
 .search-btn {
