@@ -34,6 +34,9 @@ function Data(props) {
           return restaurants;
         } else {
           outOfReachStateToParent(true);
+          setTimeout(() => {
+            outOfReachStateToParent(false)
+          }, 7000);
         }
       }
     } catch (error) {
