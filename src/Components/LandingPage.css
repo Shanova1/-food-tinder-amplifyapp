@@ -1,4 +1,4 @@
-@import url(//db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo);
+/* @import url(//db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo); */
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat&family=Raleway:wght@300&display=swap");
 
 .landing-page {
@@ -34,7 +34,7 @@
 
 h2 {
   text-shadow: 1px 1px 2px rgb(106, 123, 129);
-  font-family: "Lovelo", sans-serif;
+  /* font-family: "Lovelo", sans-serif; */
   color: whitesmoke;
   font-size: 38px;
   margin-left: 5px;

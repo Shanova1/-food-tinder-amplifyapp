@@ -1,4 +1,4 @@
-@import url(//db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo);
+/* @import url(//db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo); */
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat&family=Raleway:wght@300&display=swap");
 
 .match-page {
@@ -29,7 +29,7 @@
   text-shadow: 1px 1px 2px rgb(22, 26, 27);
   font-size: 39px;
   text-align: center;
-  font-family: "Lovelo", sans-serif;
+  /* font-family: "Lovelo", sans-serif; */
   color: whitesmoke;
   margin-bottom: 1px;
   margin-top: 1px;

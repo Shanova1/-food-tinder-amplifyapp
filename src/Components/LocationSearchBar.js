@@ -37,7 +37,7 @@ function LocationSearchBar(props) {
     <>
       <div className="location-bar-container">
         <div className="search-container">
-          <img className="logo" alt="log" src={logo} />
+          <img className="logo" alt="logo" src={logo} />
           <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
               <input

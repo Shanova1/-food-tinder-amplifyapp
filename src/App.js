@@ -56,37 +56,34 @@ function App() {
     setCards(val);
   };
 
-    // GET OUT OF REACH STATE FROM DATA.JS
-    const [outOfReachMassage, setOutOfReachMassage] = useState(false);
-    const getOutOfReachStateFromChild = (val) => {
-      setOutOfReachMassage(val);
-    };
+  // GET OUT OF REACH STATE FROM DATA.JS
+  const [outOfReachMassage, setOutOfReachMassage] = useState(false);
+  const getOutOfReachStateFromChild = (val) => {
+    setOutOfReachMassage(val);
+  };
 
   return (
     <>
-        {showLandingPage === true && (
-          <Landingpage sendButtonStateToParent={getButtonStateFromChild} />
-        )}
-        {!cards.length && showLandingPage === false ? (
-            <LocationSearchBar
-              setUserInput={setUserInput}
-              userInput={userInput}
-              fetchSugestions={fetchSugestions}
-              suggestions={suggestions}
-              selectAddress={selectAddress}
-              outOfReachMassage={outOfReachMassage}
-            />
-        ) : null}
-        {/* {outOfReachMassage == true && (
-          <p>There aren't any restaurants on Wolt near you yet</p>
-        )} */}
-        {showLandingPage === false && (
-            <Data
-              geometryLocation={geometryLocation}
-              sendCardsStateToParent={getCardsStateFromChild}
-              sendOutOfReachStateToParent={getOutOfReachStateFromChild}
-            />
-        )}
+      {showLandingPage === true && (
+        <Landingpage sendButtonStateToParent={getButtonStateFromChild} />
+      )}
+      {!cards.length && showLandingPage === false ? (
+        <LocationSearchBar
+          setUserInput={setUserInput}
+          userInput={userInput}
+          fetchSugestions={fetchSugestions}
+          suggestions={suggestions}
+          selectAddress={selectAddress}
+          outOfReachMassage={outOfReachMassage}
+        />
+      ) : null}
+      {showLandingPage === false && (
+        <Data
+          geometryLocation={geometryLocation}
+          sendCardsStateToParent={getCardsStateFromChild}
+          sendOutOfReachStateToParent={getOutOfReachStateFromChild}
+        />
+      )}
     </>
   );
 }
