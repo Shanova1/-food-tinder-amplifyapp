@@ -19,7 +19,7 @@ function Data(props) {
   // function to get restaurants data from wolt api using the geo-location from App.js
   const getRawData = async () => {
     const geo = props.geometryLocation;
-    const woltCatagoryJsonId = 10; // random wolt Catagory
+    const woltCatagoryJsonId = 9; // random wolt Catagory
 
     try {
       const response = await fetch(
@@ -77,7 +77,8 @@ function Data(props) {
       let restaurantArr = [];
       for (let i = 0; i < rawData.length; i++) {
         // fix bug when new restaurants on Wolt don't have ratings score yet
-        if (rawData[i].venue.rating == null) {
+        // if (rawData[i].venue === null) {
+        if (rawData[i].venue.rating === null) {
           rawData[i].venue.rating = "N/A";
         }
         restaurantArr.push(

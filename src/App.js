@@ -23,7 +23,9 @@ function App() {
         `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=placesapi&userInput=${userInput}`
       );
       if (response.ok) {
+        console.log(userInput);
         const jsonResponse = await response.json();
+        console.log(jsonResponse);
         const suggestionsRawData = jsonResponse.predictions;
         setSugestions(suggestionsRawData);
         return suggestions;
@@ -36,12 +38,14 @@ function App() {
   // request to Google Maps geo-location api, using the chosen location from the suggestions
   const selectAddress = async (suggestion) => {
     const chosenLocation = suggestion.place_id;
+    console.log(chosenLocation)
     try {
       const response = await fetch(
         `https://83phypjdqh.execute-api.us-east-2.amazonaws.com/staging/woltapi?apitype=geolocationapi&chosenLocation=${chosenLocation}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
+        console.log(jsonResponse);
         setGeometryLocation(jsonResponse.result.geometry.location);
         return geometryLocation;
       }
@@ -56,34 +60,37 @@ function App() {
     setCards(val);
   };
 
-  // GET OUT OF REACH STATE FROM DATA.JS
-  const [outOfReachMassage, setOutOfReachMassage] = useState(false);
-  const getOutOfReachStateFromChild = (val) => {
-    setOutOfReachMassage(val);
-  };
+    // GET OUT OF REACH STATE FROM DATA.JS
+    const [outOfReachMassage, setOutOfReachMassage] = useState(false);
+    const getOutOfReachStateFromChild = (val) => {
+      setOutOfReachMassage(val);
+    };
 
   return (
     <>
-      {showLandingPage === true && (
-        <Landingpage sendButtonStateToParent={getButtonStateFromChild} />
-      )}
-      {!cards.length && showLandingPage === false ? (
-        <LocationSearchBar
-          setUserInput={setUserInput}
-          userInput={userInput}
-          fetchSugestions={fetchSugestions}
-          suggestions={suggestions}
-          selectAddress={selectAddress}
-          outOfReachMassage={outOfReachMassage}
-        />
-      ) : null}
-      {showLandingPage === false && (
-        <Data
-          geometryLocation={geometryLocation}
-          sendCardsStateToParent={getCardsStateFromChild}
-          sendOutOfReachStateToParent={getOutOfReachStateFromChild}
-        />
-      )}
+        {showLandingPage === true && (
+          <Landingpage sendButtonStateToParent={getButtonStateFromChild} />
+        )}
+        {!cards.length && showLandingPage === false ? (
+            <LocationSearchBar
+              setUserInput={setUserInput}
+              userInput={userInput}
+              fetchSugestions={fetchSugestions}
+              suggestions={suggestions}
+              selectAddress={selectAddress}
+              outOfReachMassage={outOfReachMassage}
+            />
+        ) : null}
+        {/* {outOfReachMassage == true && (
+          <p>There aren't any restaurants on Wolt near you yet</p>
+        )} */}
+        {showLandingPage === false && (
+            <Data
+              geometryLocation={geometryLocation}
+              sendCardsStateToParent={getCardsStateFromChild}
+              sendOutOfReachStateToParent={getOutOfReachStateFromChild}
+            />
+        )}
     </>
   );
 }
