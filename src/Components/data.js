@@ -11,10 +11,10 @@ function Data(props) {
   const [woltRestaurants, setWoltRestaurants] = useState([]);
 
   // for out of reach locations
-      // send cards state to parent
-      const outOfReachStateToParent = (val) => {
-        props.sendOutOfReachStateToParent(val);
-      };
+  // send cards state to parent
+  const outOfReachStateToParent = (val) => {
+    props.sendOutOfReachStateToParent(val);
+  };
 
   // function to get restaurants data from wolt api using the geo-location from App.js
   const getRawData = async () => {
@@ -37,7 +37,7 @@ function Data(props) {
           outOfReachStateToParent(true);
           // re-set outOfReachState to false in order to show the suggestions box again for new address try (quick bug fix)
           setTimeout(() => {
-            outOfReachStateToParent(false)
+            outOfReachStateToParent(false);
           }, 7000);
         }
       }
@@ -46,8 +46,7 @@ function Data(props) {
     }
   };
 
-
-      // restaurants data model - construct a class to save the relevant data from each restaurant
+  // restaurants data model - construct a class to save the relevant data from each restaurant
   class restaurant {
     constructor(
       title,
@@ -76,14 +75,19 @@ function Data(props) {
     if (rawData !== undefined) {
       let restaurantArr = [];
       for (let i = 0; i < rawData.length; i++) {
-        // fix bug when new restaurants on Wolt don't have ratings score yet, "push" a replacement
-        if (rawData[i].venue.hasOwnProperty('rating') === false) {
+        // fix bug when new restaurants on Wolt don't have ratings score yet, "push" a replacement (case: no ratings object)
+        if (rawData[i].venue.hasOwnProperty("rating") === false) {
           const venueRatingRelacement = {
-            rating: { score: "" }
+            rating: { score: "" },
           };
           Object.assign(rawData[i].venue, venueRatingRelacement);
-          console.log(rawData[i])
-        }
+          console.log(rawData[i]);
+        };
+        // old fix for when new restaurantes on Wolt don't have ratings score yet (case: rating in null)
+        if (rawData[i].venue.rating === null) {
+          rawData[i].venue.rating = "";
+        };
+        // create new restaurantes array with relevant info
         restaurantArr.push(
           new restaurant(
             rawData[i].title,
