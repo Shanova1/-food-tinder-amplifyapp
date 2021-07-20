@@ -17,7 +17,7 @@ function MatchList(props) {
        {
       //  showMatches == true &&         
         matches.map((match) => (
-          <a href={match.link}>
+          <a href={match.link} target="_blank" rel="noreferrer noopener">
           <div className="match-card">
             <img alt={match.title} src={match.image_url} className="match-card-img" />
             <div className="match-card-title">{match.title}</div>
